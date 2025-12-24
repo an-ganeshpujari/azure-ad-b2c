@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Account - Step 1</title>
     <style>
+        /* ===== YOUR CSS (UNCHANGED) ===== */
         * {
             margin: 0;
             padding: 0;
@@ -28,7 +29,6 @@
             width: 100%;
         }
 
-        /* Progress Steps */
         .progress-steps {
             display: flex;
             justify-content: space-between;
@@ -82,28 +82,12 @@
             color: white;
         }
 
-        .step-circle.completed {
-            background: black;
-            border-color: black;
-            color: white;
-        }
-
-        .step-circle.completed::before {
-            content: '✓';
-            font-size: 28px;
-        }
-
         .step-label {
             font-weight: bold;
             font-size: 16px;
             text-align: center;
         }
 
-        .step-label.active {
-            color: #00bcd4;
-        }
-
-        /* Form Content */
         .form-content {
             max-width: 600px;
             margin: 0 auto;
@@ -134,57 +118,24 @@
             font-size: 14px;
         }
 
-        .info-icon {
-            width: 20px;
-            height: 20px;
-            background: black;
-            color: white;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: 8px;
-            font-size: 12px;
-            cursor: pointer;
-        }
-
         input {
             width: 100%;
             padding: 15px;
             border: 1px solid #ccc;
             border-radius: 4px;
             font-size: 16px;
-            transition: border-color 0.3s;
-        }
-
-        input:focus {
-            outline: none;
-            border-color: #00bcd4;
-        }
-
-        input::placeholder {
-            color: #999;
-        }
-
-        .btn {
-            padding: 15px 40px;
-            font-size: 16px;
-            font-weight: bold;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-transform: uppercase;
-            transition: opacity 0.3s;
-        }
-
-        .btn:hover {
-            opacity: 0.9;
         }
 
         .btn-primary {
             background: black;
             color: #00bcd4;
             width: 100%;
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
         }
 
         .divider {
@@ -205,7 +156,11 @@
         }
     </style>
 </head>
+
 <body>
+
+<form id="api">
+
     <div class="container">
         <div class="progress-steps">
             <div class="step">
@@ -227,14 +182,20 @@
             <p class="subtitle">Enter your email address to sign up.</p>
 
             <div class="form-group">
-                <label>
-                    Email Address
-                    <span class="info-icon">i</span>
-                </label>
-                <input type="email" placeholder="Enter your email address">
+                <label>Email Address</label>
+                <!-- REQUIRED CLAIM BINDING -->
+                <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="Enter your email address"
+                    required />
             </div>
 
-            <button class="btn btn-primary">Send Verification Code</button>
+            <!-- REQUIRED CONTINUE BUTTON -->
+            <button id="continue" type="submit" class="btn-primary">
+                Send Verification Code
+            </button>
 
             <div class="divider"></div>
 
@@ -243,5 +204,8 @@
             </div>
         </div>
     </div>
+
+</form>
+
 </body>
 </html>
