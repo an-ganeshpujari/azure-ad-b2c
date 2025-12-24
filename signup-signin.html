@@ -17,6 +17,16 @@
             color: #333;
         }
 
+        /* API Container Centering */
+        #api {
+            max-width: 500px;
+            margin: 60px auto;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
         /* Remove list bullets and spacing */
         #api ul {
             list-style: none;
@@ -53,7 +63,7 @@
         #api input:focus {
             outline: none;
             border-color: #00b9f2;
-            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+            box-shadow: 0 0 0 2px rgba(0, 185, 242, 0.15);
         }
 
         /* Submit button */
@@ -71,7 +81,7 @@
         }
 
         #api button[type="submit"]:hover {
-            background-color: #1e40af;
+            background-color: #0097c7;
         }
 
         /* Forgot password link */
@@ -156,7 +166,11 @@
             text-transform: uppercase;
         }
 
-        /** Header */
+        .top-bar-link:hover {
+            color: #00b9f2;
+        }
+
+        /* Header */
         .header-main {
             background: #f8f9fa;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -165,32 +179,21 @@
             z-index: 1000;
         }
 
-        .top-bar {
-            background: #e9ecef;
-            padding: 0.1rem 0;
-            border-bottom: 1px solid #dee2e6;
-        }
-
-        .top-bar .header-link {
-            color: #333;
-            text-decoration: none;
-            font-size: 0.75rem;
-            font-weight: 500;
-            margin-left: 3rem;
-            white-space: nowrap;
-            transition: color 0.3s;
-        }
-
-        .top-bar .header-link:hover {
-            color: #0d6efd;
-        }
-
         .main-header {
             padding: 1rem 0;
         }
 
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
         .logo-img {
-            height: 30px;
+            height: 50px;
             width: auto;
         }
 
@@ -199,7 +202,7 @@
             list-style: none;
             margin: 0;
             padding: 0;
-            gap: 2rem;
+            gap: 2.5rem;
             align-items: center;
         }
 
@@ -211,7 +214,8 @@
             color: #333;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 14px;
+            text-transform: uppercase;
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -219,50 +223,26 @@
         }
 
         .nav-menu .nav-item .nav-link:hover {
-            color: #0d6efd;
+            color: #00b9f2;
         }
 
         .nav-menu .nav-item .nav-link .dropdown-arrow {
-            font-size: 0.7rem;
-        }
-
-        .nav-menu .nav-item .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            list-style: none;
-            padding: 0.5rem 0;
-            margin-top: 0.5rem;
-            min-width: 200px;
-            border-radius: 4px;
-        }
-
-        .nav-menu .nav-item .dropdown-menu .dropdown-item {
-            padding: 0.5rem 1rem;
-            color: #333;
-            text-decoration: none;
-            display: block;
-            transition: background 0.3s;
-        }
-
-        .nav-menu .nav-item .dropdown-menu .dropdown-item:hover {
-            background: #f8f9fa;
+            font-size: 10px;
+            color: #4da6d6;
         }
 
         .header-actions {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             align-items: center;
-            flex-wrap: wrap;
         }
 
         .header-actions .btn-shopping-cart {
             color: #00bcd4;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 14px;
+            text-transform: uppercase;
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -275,40 +255,20 @@
 
         .header-actions .btn-register {
             background: #000;
-            color: white;
+            color: #4da6d6;
             border: none;
             padding: 0.75rem 1.5rem;
-            font-weight: 600;
-            font-size: 0.85rem;
-            border-radius: 4px;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             white-space: nowrap;
             transition: background 0.3s;
+            cursor: pointer;
         }
 
         .header-actions .btn-register:hover {
-            background: #333;
-        }
-
-        @media (max-width: 991px) {
-            .header-actions {
-                gap: 0.5rem;
-            }
-
-            .header-actions .btn-register {
-                padding: 0.5rem 1rem;
-                font-size: 0.8rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .top-bar .header-link {
-                font-size: 0.7rem;
-                margin-left: 1rem;
-            }
-
-            .header-actions .btn-shopping-cart {
-                font-size: 0.75rem;
-            }
+            background: #1a1a1a;
         }
 
         /* Footer */
@@ -435,13 +395,63 @@
             color: #ccc;
             font-size: 12px;
         }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .nav-menu {
+                gap: 1.5rem;
+            }
+
+            .nav-menu .nav-item .nav-link {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar-content {
+                gap: 15px;
+            }
+
+            .top-bar-link {
+                font-size: 12px;
+            }
+
+            .header-container {
+                flex-wrap: wrap;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .header-actions {
+                gap: 1rem;
+            }
+
+            .header-actions .btn-shopping-cart {
+                font-size: 12px;
+            }
+
+            .header-actions .btn-register {
+                padding: 0.5rem 1rem;
+                font-size: 12px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .social-icons {
+                justify-content: flex-start;
+            }
+
+            #api {
+                margin: 30px 20px;
+                padding: 30px 20px;
+            }
+        }
     </style>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
-        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
-        crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -454,58 +464,54 @@
         </div>
     </div>
 
+    <!-- Header -->
     <header class="header-main">
-        <!-- Main Header -->
         <div class="main-header">
-            <div class="container-fluid">
-                <div class="row align-items-center">
-                    <!-- Logo -->
-                    <div class="col-auto">
-                        <div class="logo">
-                            <img src="https://www.ciffa.com/wp-content/themes/ciffa/images/logo.png" alt="CIFFA"
-                                class="logo-img" />
-                        </div>
-                    </div>
-                    <!-- Navigation -->
-                    <nav class="col d-none d-lg-block">
-                        <ul class="nav-menu">
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link" (click)="toggleDropdown('courses')">
-                                    COURSES <span class="dropdown-arrow">▼</span>
-                                </a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link" (click)="toggleDropdown('membership')">
-                                    MEMBERSHIP <span class="dropdown-arrow">▼</span>
-                                </a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link" (click)="toggleDropdown('advocacy')">
-                                    ADVOCACY & RESOURCES <span class="dropdown-arrow">▼</span>
-                                </a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link" (click)="toggleDropdown('about')">
-                                    ABOUT CIFFA <span class="dropdown-arrow">▼</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <!-- Right Side Actions -->
-                    <div class="col-auto ms-auto">
-                        <div class="header-actions">
-                            <a href="#" class="btn-shopping-cart">
-                                <i class="bi bi-cart3"></i> SHOPPING CART
+            <div class="header-container">
+                <!-- Logo -->
+                <div class="logo">
+                    <img src="https://www.ciffa.com/wp-content/themes/ciffa/images/logo.png" alt="CIFFA"
+                        class="logo-img" />
+                </div>
+                <!-- Navigation -->
+                <nav>
+                    <ul class="nav-menu">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                COURSES <span class="dropdown-arrow">▼</span>
                             </a>
-                            <button class="btn btn-register">REGISTER FOR EVENTS</button>
-                        </div>
-                    </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                MEMBERSHIP <span class="dropdown-arrow">▼</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                ADVOCACY & RESOURCES <span class="dropdown-arrow">▼</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                ABOUT CIFFA <span class="dropdown-arrow">▼</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- Right Side Actions -->
+                <div class="header-actions">
+                    <a href="#" class="btn-shopping-cart">
+                        🛒 SHOPPING CART
+                    </a>
+                    <button class="btn-register">REGISTER FOR EVENTS</button>
                 </div>
             </div>
         </div>
     </header>
+
     <!-- Content API -->
     <div id="api"></div>
+
     <!-- Footer -->
     <footer>
         <div class="footer-content">
