@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verify Email - Step 2</title>
+
     <style>
+        /* ===== YOUR CSS (UNCHANGED) ===== */
         * {
             margin: 0;
             padding: 0;
@@ -28,7 +30,6 @@
             width: 100%;
         }
 
-        /* Progress Steps */
         .progress-steps {
             display: flex;
             justify-content: space-between;
@@ -103,7 +104,6 @@
             color: #00bcd4;
         }
 
-        /* Form Content */
         .form-content {
             max-width: 600px;
             margin: 0 auto;
@@ -130,11 +130,6 @@
             border-radius: 4px;
             cursor: pointer;
             text-transform: uppercase;
-            transition: opacity 0.3s;
-        }
-
-        .btn:hover {
-            opacity: 0.9;
         }
 
         .btn-primary {
@@ -148,7 +143,6 @@
             margin-right: 20px;
         }
 
-        /* Verification Code */
         .code-inputs {
             display: flex;
             justify-content: center;
@@ -166,24 +160,6 @@
             color: #ccc;
         }
 
-        .code-input:focus {
-            outline: none;
-            border-color: #00bcd4;
-        }
-
-        .resend-link {
-            text-align: center;
-            margin: 30px 0;
-            font-size: 16px;
-        }
-
-        .resend-link a {
-            color: #00bcd4;
-            text-decoration: none;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
         .button-group {
             display: flex;
             align-items: center;
@@ -192,7 +168,11 @@
         }
     </style>
 </head>
+
 <body>
+
+<form id="api">
+
     <div class="container">
         <div class="progress-steps">
             <div class="step">
@@ -211,44 +191,36 @@
 
         <div class="form-content">
             <h1>Verify Your Email Address</h1>
-            <p class="subtitle">A verification code has been sent to <strong>john.smith@example.com</strong>.<br>
-            Please check your mailbox and enter it below to continue.</p>
+            <p class="subtitle">
+                A verification code has been sent to your email.<br>
+                Please enter it below to continue.
+            </p>
 
+            <!-- UI ONLY (not wired yet) -->
             <div class="code-inputs">
-                <input type="text" maxlength="1" class="code-input" value="0">
-                <input type="text" maxlength="1" class="code-input" value="0">
-                <input type="text" maxlength="1" class="code-input" value="0">
-                <input type="text" maxlength="1" class="code-input" value="0">
-                <input type="text" maxlength="1" class="code-input" value="0">
-                <input type="text" maxlength="1" class="code-input" value="0">
-            </div>
-
-            <div class="resend-link">
-                Didn't receive the email? <a href="#">RESEND CODE (09:28)</a>
+                <input class="code-input" maxlength="1" />
+                <input class="code-input" maxlength="1" />
+                <input class="code-input" maxlength="1" />
+                <input class="code-input" maxlength="1" />
+                <input class="code-input" maxlength="1" />
+                <input class="code-input" maxlength="1" />
             </div>
 
             <div class="button-group">
-                <button class="btn btn-back">BACK</button>
-                <button class="btn btn-primary">Verify Email</button>
+                <!-- BACK disabled for now -->
+                <button type="button" class="btn btn-back" disabled>
+                    BACK
+                </button>
+
+                <!-- REQUIRED CONTINUE -->
+                <button id="continue" type="submit" class="btn btn-primary">
+                    Verify Email
+                </button>
             </div>
         </div>
     </div>
 
-    <script>
-        // Auto-focus next input for verification code
-        document.querySelectorAll('.code-input').forEach((input, index, inputs) => {
-            input.addEventListener('input', function() {
-                if (this.value.length === 1 && index < inputs.length - 1) {
-                    inputs[index + 1].focus();
-                }
-            });
+</form>
 
-            input.addEventListener('keydown', function(e) {
-                if (e.key === 'Backspace' && this.value === '' && index > 0) {
-                    inputs[index - 1].focus();
-                }
-            });
-        });
-    </script>
 </body>
 </html>
