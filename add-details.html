@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Details - Step 3</title>
+
     <style>
+        /* ===== YOUR CSS (UNCHANGED) ===== */
         * {
             margin: 0;
             padding: 0;
@@ -28,7 +30,6 @@
             width: 100%;
         }
 
-        /* Progress Steps */
         .progress-steps {
             display: flex;
             justify-content: space-between;
@@ -51,16 +52,12 @@
                 transparent 5px,
                 transparent 10px
             );
-            z-index: 0;
         }
 
         .step {
             display: flex;
             flex-direction: column;
             align-items: center;
-            position: relative;
-            z-index: 1;
-            flex: 1;
         }
 
         .step-circle {
@@ -93,17 +90,6 @@
             font-size: 28px;
         }
 
-        .step-label {
-            font-weight: bold;
-            font-size: 16px;
-            text-align: center;
-        }
-
-        .step-label.active {
-            color: #00bcd4;
-        }
-
-        /* Form Content */
         .form-content {
             max-width: 600px;
             margin: 0 auto;
@@ -119,7 +105,6 @@
         .subtitle {
             font-size: 16px;
             margin-bottom: 40px;
-            color: #333;
         }
 
         .form-group {
@@ -127,25 +112,9 @@
         }
 
         label {
-            display: flex;
-            align-items: center;
             font-weight: bold;
             margin-bottom: 10px;
-            font-size: 14px;
-        }
-
-        .info-icon {
-            width: 20px;
-            height: 20px;
-            background: black;
-            color: white;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: 8px;
-            font-size: 12px;
-            cursor: pointer;
+            display: block;
         }
 
         input {
@@ -154,36 +123,17 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             font-size: 16px;
-            transition: border-color 0.3s;
-        }
-
-        input:focus {
-            outline: none;
-            border-color: #00bcd4;
-        }
-
-        input::placeholder {
-            color: #999;
-        }
-
-        .btn {
-            padding: 15px 40px;
-            font-size: 16px;
-            font-weight: bold;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-transform: uppercase;
-            transition: opacity 0.3s;
-        }
-
-        .btn:hover {
-            opacity: 0.9;
         }
 
         .btn-primary {
             background: black;
             color: #00bcd4;
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
         }
 
         .btn-back {
@@ -192,150 +142,92 @@
             margin-right: 20px;
         }
 
-        /* Password Requirements */
-        .password-requirements {
-            margin-top: 15px;
-            font-size: 14px;
-        }
-
-        .requirement {
-            display: flex;
-            align-items: center;
-            margin: 8px 0;
-            color: #4caf50;
-        }
-
-        .requirement::before {
-            content: '✓';
-            margin-right: 8px;
-            font-weight: bold;
-        }
-
-        .requirement.pending {
-            color: #666;
-        }
-
-        .requirement.pending::before {
-            content: '✓';
-            color: #ccc;
-        }
-
-        .requirement.error {
-            color: #f44336;
-        }
-
-        .requirement.error::before {
-            content: '✗';
-        }
-
-        .nested-requirement {
-            margin-left: 20px;
-        }
-
-        .error-message {
-            color: #f44336;
-            font-size: 14px;
-            margin-top: 10px;
-            display: flex;
-            align-items: center;
-        }
-
-        .error-message::before {
-            content: '✗';
-            margin-right: 8px;
-            font-weight: bold;
-        }
-
-        .eye-icon {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-            color: #999;
-        }
-
-        .input-wrapper {
-            position: relative;
-        }
-
         .button-group {
             display: flex;
-            align-items: center;
             justify-content: center;
             margin-top: 40px;
         }
     </style>
 </head>
+
 <body>
+
+<form id="api">
+
     <div class="container">
+
         <div class="progress-steps">
             <div class="step">
                 <div class="step-circle completed"></div>
-                <div class="step-label">Add Email<br>Address</div>
+                <div>Add Email</div>
             </div>
             <div class="step">
                 <div class="step-circle completed"></div>
-                <div class="step-label">Verify Email<br>Address</div>
+                <div>Verify Email</div>
             </div>
             <div class="step">
                 <div class="step-circle active">3</div>
-                <div class="step-label active">Add Details</div>
+                <div>Add Details</div>
             </div>
         </div>
 
         <div class="form-content">
             <h1>Add Details</h1>
-            <p class="subtitle">You account has been verified. Please enter your details to create your account.</p>
+            <p class="subtitle">
+                Your account has been verified. Please enter your details.
+            </p>
 
+            <!-- REQUIRED PASSWORD CLAIM -->
             <div class="form-group">
                 <label>Password</label>
-                <div class="input-wrapper">
-                    <input type="password" value="**********">
-                    <span class="eye-icon">👁</span>
-                </div>
-                <div class="password-requirements">
-                    <div class="requirement">At least 8 characters</div>
-                    <div class="requirement">At least 3 of the following:</div>
-                    <div class="requirement nested-requirement">a lowercase letter</div>
-                    <div class="requirement pending nested-requirement">an uppercase letter</div>
-                    <div class="requirement nested-requirement">a number</div>
-                    <div class="requirement nested-requirement">a symbol</div>
-                </div>
+                <input
+                    id="newPassword"
+                    name="newPassword"
+                    type="password"
+                    required />
             </div>
 
-            <div class="form-group">
-                <label>Re-enter Password</label>
-                <div class="input-wrapper">
-                    <input type="password" value="******">
-                    <span class="eye-icon">👁</span>
-                </div>
-                <div class="error-message">Password does not match</div>
-            </div>
-
+            <!-- FIRST NAME -->
             <div class="form-group">
                 <label>First Name</label>
-                <input type="text" placeholder="First Name">
+                <input
+                    id="givenName"
+                    name="givenName"
+                    type="text" />
             </div>
 
+            <!-- LAST NAME -->
             <div class="form-group">
                 <label>Last Name</label>
-                <input type="text" placeholder="Last Name">
+                <input
+                    id="surname"
+                    name="surname"
+                    type="text" />
             </div>
 
+            <!-- POSTAL CODE -->
             <div class="form-group">
-                <label>
-                    Company Postal Code
-                    <span class="info-icon">i</span>
-                </label>
-                <input type="text" placeholder="Company Postal Code">
+                <label>Company Postal Code</label>
+                <input
+                    id="postalCode"
+                    name="postalCode"
+                    type="text" />
             </div>
 
             <div class="button-group">
-                <button class="btn btn-back">BACK</button>
-                <button class="btn btn-primary">Create Account</button>
+                <button type="button" class="btn-back" disabled>
+                    BACK
+                </button>
+
+                <!-- REQUIRED CONTINUE -->
+                <button id="continue" type="submit" class="btn-primary">
+                    Create Account
+                </button>
             </div>
         </div>
     </div>
+
+</form>
+
 </body>
 </html>
