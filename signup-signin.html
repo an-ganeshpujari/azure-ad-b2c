@@ -9,7 +9,117 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
- 
+ /* Remove list bullets and spacing */
+#api ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#api li {
+    margin-bottom: 16px;
+    position: relative;
+}
+
+/* Labels */
+#api label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 6px;
+}
+
+/* Inputs */
+#api input[type="text"],
+#api input[type="email"],
+#api input[type="password"] {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+#api input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+/* Submit button */
+#api button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 8px;
+    background-color: #2563eb;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#api button[type="submit"]:hover {
+    background-color: #1e40af;
+}
+
+/* Forgot password link */
+#api .forgot-password {
+    text-align: right;
+    font-size: 13px;
+    margin-top: -12px;
+    margin-bottom: 16px;
+}
+
+#api .forgot-password a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+#api .forgot-password a:hover {
+    text-decoration: underline;
+}
+
+/* Divider */
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #d1d5db;
+}
+
+.divider:not(:empty)::before {
+    margin-right: 0.75em;
+}
+
+.divider:not(:empty)::after {
+    margin-left: 0.75em;
+}
+
+/* Sign up link */
+.signup-link {
+    font-size: 14px;
+}
+
+.signup-link a {
+    color: #2563eb;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
 
   </style>
 </head>
