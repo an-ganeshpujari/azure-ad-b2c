@@ -436,8 +436,12 @@
             font-size: 12px;
         }
     </style>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -449,23 +453,8 @@
             <a href="#" class="top-bar-link">Log In</a>
         </div>
     </div>
-    <!-- Header -->
-    <!-- src/app/components/header/header.component.html -->
-    <!-- src/app/components/header/header.component.html -->
+
     <header class="header-main">
-        <!-- Top Bar with Links -->
-        <div class="top-bar">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col text-end">
-                        <a href="#" class="header-link d-none d-md-inline"><strong>ADVERTISING AND
-                                SPONSORSHIPS</strong></a>
-                        <a href="#" class="header-link d-none d-md-inline"><strong>SHOP</strong></a>
-                        <a href="#" class="header-link d-none d-md-inline"><strong>LOG OUT</strong></a>
-                    </div>
-                </div>
-            </div>
-        </div>
         <!-- Main Header -->
         <div class="main-header">
             <div class="container-fluid">
@@ -484,10 +473,6 @@
                                 <a href="#" class="nav-link" (click)="toggleDropdown('courses')">
                                     COURSES <span class="dropdown-arrow">▼</span>
                                 </a>
-                                <ul class="dropdown-menu" *ngIf="showCoursesDropdown">
-                                    <li><a href="#" class="dropdown-item">Course 1</a></li>
-                                    <li><a href="#" class="dropdown-item">Course 2</a></li>
-                                </ul>
                             </li>
                             <li class="nav-item dropdown">
                                 <a href="#" class="nav-link" (click)="toggleDropdown('membership')">
@@ -498,13 +483,6 @@
                                 <a href="#" class="nav-link" (click)="toggleDropdown('advocacy')">
                                     ADVOCACY & RESOURCES <span class="dropdown-arrow">▼</span>
                                 </a>
-                                <ul class="dropdown-menu" *ngIf="showAdvocacyDropdown">
-                                    <li><a href="#" class="dropdown-item">Advocacy</a></li>
-                                    <li>
-                                        <a href="#" class="dropdown-item">The Forwarder Blog</a>
-                                    </li>
-                                    <li><a href="#" class="dropdown-item">Resources</a></li>
-                                </ul>
                             </li>
                             <li class="nav-item dropdown">
                                 <a href="#" class="nav-link" (click)="toggleDropdown('about')">
