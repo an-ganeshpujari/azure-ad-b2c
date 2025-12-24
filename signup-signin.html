@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sign In / Sign Up</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Figma font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f3f4f6;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .auth-card {
+      width: 420px;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 32px 40px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .auth-card h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: #111827;
+    }
+
+    .auth-card p {
+      font-size: 15px;
+      margin-bottom: 24px;
+      color: #6b7280;
+    }
+
+    /* B2C injects inputs/buttons here */
+    #api {
+      margin-top: 20px;
+    }
+
+    /* Inputs styling (for reference if needed) */
+    input {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+      margin-bottom: 14px;
+      font-size: 14px;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #2563eb;
+    }
+
+    /* Buttons styling (B2C injected buttons inherit CSS) */
+    button {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      background: #2563eb;
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+
+    button:hover {
+      background: #1e40af;
+    }
+
+    /* Error messages */
+    .error {
+      color: #dc2626;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    /* Optional: links (forgot password, sign up) */
+    a {
+      text-decoration: none;
+      color: #2563eb;
+      font-size: 13px;
+      display: block;
+      margin-top: 12px;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="auth-card">
+    <h1>Welcome Back</h1>
+    <p>Sign in to your account</p>
+
+    <!-- THIS IS REQUIRED: B2C injects login/signup fields here -->
+    <div id="api"></div>
+
+    <!-- Optional links -->
+    <!-- <a href="#">Forgot Password?</a>
+    <a href="#">Sign Up</a> -->
+  </div>
+</body>
+</html>
