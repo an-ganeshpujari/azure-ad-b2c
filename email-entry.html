@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account - Step 1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 60px 80px;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        /* Progress Steps */
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .progress-steps::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 15%;
+            right: 15%;
+            height: 2px;
+            background: repeating-linear-gradient(
+                to right,
+                #00bcd4 0px,
+                #00bcd4 5px,
+                transparent 5px,
+                transparent 10px
+            );
+            z-index: 0;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            flex: 1;
+        }
+
+        .step-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid #00bcd4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .step-circle.active {
+            background: #00bcd4;
+            color: white;
+        }
+
+        .step-circle.completed {
+            background: black;
+            border-color: black;
+            color: white;
+        }
+
+        .step-circle.completed::before {
+            content: '✓';
+            font-size: 28px;
+        }
+
+        .step-label {
+            font-weight: bold;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .step-label.active {
+            color: #00bcd4;
+        }
+
+        /* Form Content */
+        .form-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .info-icon {
+            width: 20px;
+            height: 20px;
+            background: black;
+            color: white;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 8px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #00bcd4;
+        }
+
+        input::placeholder {
+            color: #999;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: opacity 0.3s;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .btn-primary {
+            background: black;
+            color: #00bcd4;
+            width: 100%;
+        }
+
+        .divider {
+            height: 1px;
+            background: #00bcd4;
+            margin: 40px 0;
+        }
+
+        .sign-in-link {
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .sign-in-link a {
+            color: #00bcd4;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="progress-steps">
+            <div class="step">
+                <div class="step-circle active">1</div>
+                <div class="step-label active">Add Email<br>Address</div>
+            </div>
+            <div class="step">
+                <div class="step-circle">2</div>
+                <div class="step-label">Verify Email<br>Address</div>
+            </div>
+            <div class="step">
+                <div class="step-circle">3</div>
+                <div class="step-label">Add Details</div>
+            </div>
+        </div>
+
+        <div class="form-content">
+            <h1>Create an Account</h1>
+            <p class="subtitle">Enter your email address to sign up.</p>
+
+            <div class="form-group">
+                <label>
+                    Email Address
+                    <span class="info-icon">i</span>
+                </label>
+                <input type="email" placeholder="Enter your email address">
+            </div>
+
+            <button class="btn btn-primary">Send Verification Code</button>
+
+            <div class="divider"></div>
+
+            <div class="sign-in-link">
+                Already have an account? <a href="#">SIGN IN</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
