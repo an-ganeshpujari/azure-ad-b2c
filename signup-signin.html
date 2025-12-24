@@ -10,98 +10,111 @@
 
   <style>
     /* Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  /* Page background */
+body {
+  font-family: "Segoe UI", Inter, Arial, sans-serif;
+  background-color: #f9fafb;
+}
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #f3f4f6;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+/* Main card container */
+#api {
+  max-width: 420px;
+  margin: 40px auto;
+  padding: 32px 28px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
 
-    .auth-card {
-      width: 420px;
-      background: #ffffff;
-      border-radius: 20px;
-      padding: 32px 40px;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-      text-align: center;
-    }
+/* Page heading */
+h1 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #111827;
+}
 
-    .auth-card h1 {
-      font-size: 28px;
-      margin-bottom: 10px;
-      color: #111827;
-    }
+/* Description text */
+.intro {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 24px;
+}
 
-    .auth-card p {
-      font-size: 15px;
-      margin-bottom: 24px;
-      color: #6b7280;
-    }
+/* Form labels */
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 6px;
+}
 
-    /* B2C injects inputs/buttons here */
-    #api {
-      margin-top: 20px;
-    }
+/* Input fields */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background-color: #ffffff;
+  transition: all 0.2s ease;
+}
 
-    /* Inputs styling (for reference if needed) */
-    input {
-      width: 100%;
-      padding: 12px 14px;
-      border-radius: 8px;
-      border: 1px solid #d1d5db;
-      margin-bottom: 14px;
-      font-size: 14px;
-    }
+/* Input focus state */
+input:focus {
+  border-color: #2563eb;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
 
-    input:focus {
-      outline: none;
-      border-color: #2563eb;
-    }
+/* Error messages */
+.error,
+.errorText {
+  color: #dc2626;
+  font-size: 12px;
+  margin-top: 6px;
+}
 
-    /* Buttons styling (B2C injected buttons inherit CSS) */
-    button {
-      width: 100%;
-      padding: 12px;
-      border-radius: 8px;
-      background: #2563eb;
-      color: #fff;
-      font-weight: 600;
-      border: none;
-      cursor: pointer;
-      margin-top: 8px;
-    }
+/* Primary button */
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
 
-    button:hover {
-      background: #1e40af;
-    }
+button[type="submit"]:hover {
+  background-color: #1e40af;
+}
 
-    /* Error messages */
-    .error {
-      color: #dc2626;
-      font-size: 13px;
-      margin-bottom: 10px;
-    }
+/* Secondary links (Sign in / Forgot password) */
+a {
+  color: #2563eb;
+  font-size: 13px;
+  text-decoration: none;
+}
 
-    /* Optional: links (forgot password, sign up) */
-    a {
-      text-decoration: none;
-      color: #2563eb;
-      font-size: 13px;
-      display: block;
-      margin-top: 12px;
-    }
+a:hover {
+  text-decoration: underline;
+}
 
-    a:hover {
-      text-decoration: underline;
-    }
+/* Mobile optimization */
+@media (max-width: 480px) {
+  #api {
+    margin: 20px 16px;
+    padding: 24px 20px;
+  }
+}
   </style>
 </head>
 
