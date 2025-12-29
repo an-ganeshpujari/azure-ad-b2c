@@ -17,11 +17,7 @@
             color: #000;
         }
 
-        .intro {
-            display: none;
-        }
-
-        h1[role="heading"] {
+        #api .intro {
             display: none;
         }
 
@@ -47,13 +43,18 @@
             position: relative;
         }
 
+        #api .entry-item {
+            margin: 5px 0;
+
+        }
+
         /* Labels */
         #api label {
             display: block;
             font-size: 14px;
             font-weight: 500;
-            color: #374151;
-            margin-bottom: 6px;
+            color: #000;
+            margin-bottom: 5px;
         }
 
         /* Inputs */
@@ -77,6 +78,7 @@
         /* Submit button */
         #api button {
             margin-top: 20px;
+            margin-right: 20px;
             padding: 16px;
             font-size: 14px;
             font-weight: 600;
@@ -97,18 +99,21 @@
             margin-bottom: 16px;
         }
 
-        #api .forgot-password a {
+        #ap a:hover,
+        #api a:active,
+        #api a:visited,
+        #api a {
             color: #00b9f2;
             text-decoration: underline;
         }
 
-        #api .error .itemLevel {
+        #api .error {
             color: #b00;
             text-align: left;
             margin-bottom: 5px;
         }
 
-        #createAccount {
+        #api .create #createAccount {
             margin-left: 10px;
             text-transform: uppercase;
         }
