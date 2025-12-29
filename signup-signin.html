@@ -14,7 +14,11 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            color: #333;
+            color: #000;
+        }
+
+        .intro {
+            display: none;
         }
 
         /* API Container Centering */
@@ -44,7 +48,7 @@
             display: block;
             font-size: 14px;
             font-weight: 500;
-            color: #374151;
+            color: #000;
             margin-bottom: 6px;
         }
 
@@ -92,11 +96,13 @@
             margin-bottom: 16px;
         }
 
+        #api a,
         #api .forgot-password a {
             color: #00b9f2;
             text-decoration: none;
         }
 
+        #api a,
         #api .forgot-password a:hover {
             text-decoration: underline;
         }
@@ -122,21 +128,6 @@
 
         .divider:not(:empty)::after {
             margin-left: 0.75em;
-        }
-
-        /* Sign up link */
-        .signup-link {
-            font-size: 14px;
-        }
-
-        .signup-link a {
-            color: #00b9f2;
-            font-weight: 600;
-            text-decoration: none;
-        }
-
-        .signup-link a:hover {
-            text-decoration: underline;
         }
 
         #api a.helpLink {
@@ -303,9 +294,10 @@
             text-decoration: none;
             display: block;
         }
-          .footer-section a {
+
+        .footer-section a {
             color: #4da6d6;
-          }
+        }
 
         .footer-section a:hover {
             color: #4da6d6;
@@ -325,7 +317,7 @@
         }
 
         .signup-btn {
-            background-color:#000;
+            background-color: #000;
             color: #4da6d6;
             padding: 12px 30px;
             border: none;
