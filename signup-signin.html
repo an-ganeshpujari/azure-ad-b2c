@@ -14,7 +14,15 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            color: #333;
+            color: #000;
+        }
+
+        .intro {
+            display: none;
+        }
+
+        h1[role="heading"] {
+            display: none;
         }
 
         /* API Container Centering */
@@ -60,28 +68,25 @@
             transition: all 0.2s ease;
         }
 
-        #api input:focus {
+        /* #api input:focus {
             outline: none;
             border-color: #00b9f2;
             box-shadow: 0 0 0 2px rgba(0, 185, 242, 0.15);
-        }
+        } */
 
         /* Submit button */
-        #api button[type="submit"] {
-            width: 100%;
-            padding: 12px;
+        #api button {
+            margin-top: 20px;
+            padding: 16px;
             font-size: 14px;
             font-weight: 600;
             border-radius: 8px;
-            background-color: #00b9f2;
-            color: #fff;
+            color: #00b9f2;
+            background-color: #000;
             border: none;
             cursor: pointer;
+            text-transform: uppercase;
             transition: background-color 0.2s ease;
-        }
-
-        #api button[type="submit"]:hover {
-            background-color: #0097c7;
         }
 
         /* Forgot password link */
@@ -97,12 +102,13 @@
             text-decoration: underline;
         }
 
-        #api .error {
+        #api .error .itemLevel {
             color: #b00;
             text-align: left;
+            margin-bottom: 5px;
         }
 
-        #api .createAccount {
+        #createAccount {
             margin-left: 10px;
             text-transform: uppercase;
         }
@@ -112,7 +118,7 @@
             display: flex;
             align-items: center;
             text-align: center;
-                margin: 20px 0;
+            margin: 20px 0;
         }
 
         .divider::before,
@@ -130,20 +136,6 @@
             margin-left: 0.75em;
         }
 
-        /* Sign up link */
-        .signup-link {
-            font-size: 14px;
-        }
-
-        .signup-link a {
-            color: #00b9f2;
-            font-weight: 600;
-            text-decoration: none;
-        }
-
-        .signup-link a:hover {
-            text-decoration: underline;
-        }
 
         #api a.helpLink {
             display: none;
@@ -165,7 +157,7 @@
         }
 
         .top-bar-link {
-            color: #333;
+            color: #000;
             text-decoration: none;
             font-size: 14px;
             font-weight: 600;
@@ -217,7 +209,7 @@
         }
 
         .nav-menu .nav-item .nav-link {
-            color: #333;
+            color: #000;
             text-decoration: none;
             font-weight: 600;
             font-size: 14px;
