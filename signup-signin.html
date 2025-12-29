@@ -26,7 +26,7 @@
             max-width: 500px;
             margin: 60px auto;
             padding: 40px;
-            background-color: #fff;
+            background-color: #f5f5f5;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
@@ -51,10 +51,9 @@
         /* Labels */
         #api label {
             display: block;
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 500;
             color: #000;
-            margin-bottom: 5px;
         }
 
         /* Inputs */
@@ -62,18 +61,19 @@
         #api input[type="email"],
         #api input[type="password"] {
             width: 100%;
-            padding: 12px 14px;
-            border-radius: 8px;
+            padding: 16px;
+            border-radius: 5px;
             border: 1px solid #d1d5db;
             font-size: 14px;
             transition: all 0.2s ease;
+            margin-top: 5px;
         }
 
-        /* #api input:focus {
+        #api input:focus {
             outline: none;
             border-color: #00b9f2;
             box-shadow: 0 0 0 2px rgba(0, 185, 242, 0.15);
-        } */
+        }
 
         /* Submit button */
         #api button {
@@ -110,7 +110,8 @@
         #api .error {
             color: #b00;
             text-align: left;
-            margin-bottom: 5px;
+            margin: 2px 0;
+            font-size: 14px;
         }
 
         #api .create #createAccount {
@@ -123,7 +124,11 @@
             display: flex;
             align-items: center;
             text-align: center;
-            margin: 20px 0;
+            margin: 25px 0;
+        }
+
+        .divider h2 {
+            display: none;
         }
 
         .divider::before,
@@ -132,15 +137,6 @@
             flex: 1;
             border-bottom: 1px solid #00b9f2;
         }
-
-        .divider:not(:empty)::before {
-            margin-right: 0.75em;
-        }
-
-        .divider:not(:empty)::after {
-            margin-left: 0.75em;
-        }
-
 
         #api a.helpLink {
             display: none;
