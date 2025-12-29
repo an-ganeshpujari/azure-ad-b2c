@@ -45,7 +45,12 @@
 
         #api .entry-item {
             margin: 5px 0;
+            position: relative;
+        }
 
+        #api #forgotPassword {
+            position: absolute;
+            bottom: -40px;
         }
 
         /* Labels */
@@ -77,8 +82,7 @@
 
         /* Submit button */
         #api button {
-            margin-top: 20px;
-            margin-right: 20px;
+            margin: 15px 0;
             padding: 16px;
             font-size: 14px;
             font-weight: 600;
@@ -89,6 +93,15 @@
             cursor: pointer;
             text-transform: uppercase;
             transition: background-color 0.2s ease;
+        }
+
+        #api button #next {
+            margin-top: 60px
+        }
+
+        #api button.cancel {
+            margin-left: 20px;
+            background-color: transparent;
         }
 
         /* Forgot password link */
