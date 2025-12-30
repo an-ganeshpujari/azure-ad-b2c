@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Details - Step 3</title>
-
+    <title>CIFFA Dev</title>
     <style>
-        /* ===== YOUR CSS (UNCHANGED) ===== */
         * {
             margin: 0;
             padding: 0;
@@ -14,228 +13,561 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
+            color: #000;
+        }
+
+        #api .intro {
+            display: none;
+        }
+
+        /* API Container Centering */
+        #api {
+            max-width: 500px;
+            margin: 60px auto;
+            padding: 40px;
             background-color: #f5f5f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .container {
-            background: white;
-            padding: 60px 80px;
-            max-width: 1200px;
-            width: 100%;
+        /* Remove list bullets and spacing */
+        #api ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
-        .progress-steps {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 80px;
+        #api li {
+            margin-bottom: 16px;
             position: relative;
         }
 
-        .progress-steps::before {
-            content: '';
+        #api .entry-item {
+            margin: 5px 0;
+            position: relative;
+        }
+
+        #api #forgotPassword {
             position: absolute;
-            top: 25px;
-            left: 15%;
-            right: 15%;
-            height: 2px;
-            background: repeating-linear-gradient(
-                to right,
-                #00bcd4 0px,
-                #00bcd4 5px,
-                transparent 5px,
-                transparent 10px
-            );
+            bottom: -40px;
         }
 
-        .step {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .step-circle {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: white;
-            border: 3px solid #00bcd4;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .step-circle.active {
-            background: #00bcd4;
-            color: white;
-        }
-
-        .step-circle.completed {
-            background: black;
-            border-color: black;
-            color: white;
-        }
-
-        .step-circle.completed::before {
-            content: '✓';
-            font-size: 28px;
-        }
-
-        .form-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        h1 {
-            font-size: 36px;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            font-weight: 900;
-        }
-
-        .subtitle {
-            font-size: 16px;
-            margin-bottom: 40px;
-        }
-
-        .form-group {
-            margin-bottom: 30px;
-        }
-
-        label {
-            font-weight: bold;
-            margin-bottom: 10px;
+        /* Labels */
+        #api label {
             display: block;
+            font-size: 16px;
+            font-weight: 500;
+            color: #000;
+            margin-top: 5px;
         }
 
-        input {
+        /* Inputs */
+        #api input[type="text"],
+        #api input[type="email"],
+        #api input[type="password"] {
             width: 100%;
-            padding: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
+            padding: 16px;
+            border-radius: 5px;
+            border: 1px solid #d1d5db;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            margin-top: 5px;
         }
 
-        .btn-primary {
-            background: black;
-            color: #00bcd4;
-            padding: 15px 40px;
-            font-size: 16px;
-            font-weight: bold;
+        #api input:focus {
+            outline: none;
+            border-color: #00b9f2;
+            box-shadow: 0 0 0 2px rgba(0, 185, 242, 0.15);
+        }
+
+        /* Submit button */
+        #api button {
+            margin: 15px 0;
+            padding: 16px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 8px;
+            color: #00b9f2;
+            background-color: #000;
             border: none;
             cursor: pointer;
             text-transform: uppercase;
+            transition: background-color 0.2s ease;
         }
 
-        .btn-back {
-            background: transparent;
-            color: #00bcd4;
-            margin-right: 20px;
+        #api .buttons #next {
+            margin-top: 60px
         }
 
-        .button-group {
+        #api .buttons .sendNewCode {
+            margin-left: 20px;
+        }
+
+        #api .buttons #cancel {
+            margin-left: 20px;
+            background-color: transparent;
+        }
+
+        /* Forgot password link */
+        #api .forgot-password {
+            text-align: right;
+            font-size: 13px;
+            margin-top: -12px;
+            margin-bottom: 16px;
+        }
+
+        #ap a:hover,
+        #api a:active,
+        #api a:visited,
+        #api a {
+            color: #00b9f2;
+            text-decoration: underline;
+        }
+
+        #api .error {
+            color: #b00;
+            text-align: left;
+            margin: 2px 0;
+            font-size: 14px;
+        }
+
+        #api .create #createAccount {
+            margin-left: 10px;
+            text-transform: uppercase;
+        }
+
+        /* Divider */
+        .divider {
             display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 25px 0;
+        }
+
+        .divider h2 {
+            display: none;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid #00b9f2;
+        }
+
+        #api a.helpLink {
+            display: none;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: #e8e8e8;
+            padding: 10px 0;
+        }
+
+        .top-bar-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 30px;
+        }
+
+        .top-bar-link {
+            color: #000;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .top-bar-link:hover {
+            color: #00b9f2;
+        }
+
+        /* Header */
+        .header-main {
+            background: #f8f9fa;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .main-header {
+            padding: 1rem 0;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-menu .nav-item {
+            position: relative;
+        }
+
+        .nav-menu .nav-item .nav-link {
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .nav-menu .nav-item .nav-link:hover {
+            color: #00b9f2;
+        }
+
+        .nav-menu .nav-item .nav-link .dropdown-arrow {
+            font-size: 10px;
+            color: #00b9f2;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .header-actions .btn-shopping-cart {
+            color: #00b9f2;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+        }
+
+        .header-actions .btn-shopping-cart:hover {
+            color: #00b9f2;
+        }
+
+        .header-actions .btn-register {
+            background: #000;
+            color: #00b9f2;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+            transition: background 0.3s;
+            cursor: pointer;
+        }
+
+        .header-actions .btn-register:hover {
+            background: #1a1a1a;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #f9f9f9;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: #999;
+            font-size: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            font-size: 14px;
+            line-height: 1.8;
+            text-decoration: none;
+            display: block;
+        }
+
+        .footer-section a {
+            color: #00b9f2;
+        }
+
+        .footer-section a:hover {
+            color: #00b9f2;
+        }
+
+        .mailing-form {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .email-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .signup-btn {
+            background-color: #000;
+            color: #4da6d6;
+            padding: 12px 30px;
+            border: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: background-color 0.3s;
+        }
+
+        .signup-btn:hover {
+            background-color: #999;
+        }
+
+        .privacy-link {
+            color: #4da6d6 !important;
+            text-decoration: underline;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: #b3b3b3;
+            display: flex;
+            align-items: center;
             justify-content: center;
-            margin-top: 40px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .social-icon:hover {
+            background-color: #999;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 20px 0;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .footer-links a {
+            color: #4da6d6;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .copyright {
+            font-size: 12px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .nav-menu {
+                gap: 1.5rem;
+            }
+
+            .nav-menu .nav-item .nav-link {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar-content {
+                gap: 15px;
+            }
+
+            .top-bar-link {
+                font-size: 12px;
+            }
+
+            .header-container {
+                flex-wrap: wrap;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .header-actions {
+                gap: 1rem;
+            }
+
+            .header-actions .btn-shopping-cart {
+                font-size: 12px;
+            }
+
+            .header-actions .btn-register {
+                padding: 0.5rem 1rem;
+                font-size: 12px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .social-icons {
+                justify-content: flex-start;
+            }
+
+            #api {
+                margin: 30px 20px;
+                padding: 30px 20px;
+            }
         }
     </style>
 </head>
 
 <body>
+    <!-- Top Bar -->
+    <!-- <div class="top-bar">
+        <div class="top-bar-content">
+            <a href="#" class="top-bar-link">Advertising and Sponsorships</a>
+            <a href="#" class="top-bar-link">Shop</a>
+            <a href="#" class="top-bar-link">Log In</a>
+        </div>
+    </div> -->
 
-<form id="api">
-
-    <div class="container">
-
-        <div class="progress-steps">
-            <div class="step">
-                <div class="step-circle completed"></div>
-                <div>Verify Email</div>
-            </div>
-            <div class="step">
-                <div class="step-circle active">2</div>
-                <div>Add Details</div>
+    <!-- Header -->
+    <header class="header-main">
+        <div class="main-header">
+            <div class="header-container">
+                <!-- Logo -->
+                <div class="logo">
+                    <img src="https://www.ciffa.com/wp-content/themes/ciffa/images/logo.png" alt="CIFFA"
+                        class="logo-img" />
+                </div>
+                <!-- Navigation -->
+                <nav>
+                    <ul class="nav-menu">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                COURSES <span class="dropdown-arrow">▼</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                MEMBERSHIP <span class="dropdown-arrow">▼</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                ADVOCACY & RESOURCES <span class="dropdown-arrow">▼</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                ABOUT CIFFA <span class="dropdown-arrow">▼</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- Right Side Actions -->
+                <div class="header-actions">
+                    <a href="#" class="btn-shopping-cart">
+                        🛒 SHOPPING CART
+                    </a>
+                    <button class="btn-register">REGISTER FOR EVENTS</button>
+                </div>
             </div>
         </div>
+    </header>
 
-        <div class="form-content">
-            <h1>Add Details</h1>
-            <p class="subtitle">
-                Your account has been verified. Please enter your details.
-            </p>
+    <!-- Content API -->
+    <div id="api"></div>
 
-            <!-- REQUIRED PASSWORD CLAIM -->
-            <div class="form-group">
-                <label>Password</label>
-                <input
-                    id="newPassword"
-                    name="newPassword"
-                    type="password"
-                    placeholder="Enter password"
-                    required />
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CIFFA</h3>
+                <p>170 Attwell Drive, Suite 480</p>
+                <p>Toronto, Ontario M9W 5Z5</p>
             </div>
-
-            <!-- REQUIRED CONFIRM PASSWORD CLAIM -->
-            <div class="form-group">
-                <label>Confirm Password</label>
-                <input
-                    id="reenterPassword"
-                    name="reenterPassword"
-                    type="password"
-                    placeholder="Re-enter password"
-                    required />
+            <div class="footer-section">
+                <h3>Join Our Mailing List for Updates</h3>
+                <p>By clicking sign up you consent to receive emails from us. For further information refer to our <a
+                        href="#" class="privacy-link">Privacy Policy</a></p>
+                <form class="mailing-form">
+                    <input type="email" class="email-input" placeholder="Email address">
+                    <button type="submit" class="signup-btn">Sign Up</button>
+                </form>
             </div>
-
-            <!-- FIRST NAME -->
-            <div class="form-group">
-                <label>First Name</label>
-                <input
-                    id="givenName"
-                    name="givenName"
-                    type="text" />
-            </div>
-
-            <!-- LAST NAME -->
-            <div class="form-group">
-                <label>Last Name</label>
-                <input
-                    id="surname"
-                    name="surname"
-                    type="text" />
-            </div>
-
-            <!-- POSTAL CODE -->
-            <div class="form-group">
-                <label>Company Postal Code</label>
-                <input
-                    id="postalCode"
-                    name="postalCode"
-                    type="text" />
-            </div>
-
-            <div class="button-group">
-                <button type="button" class="btn-back" disabled>
-                    BACK
-                </button>
-
-                <!-- REQUIRED CONTINUE -->
-                <button id="continue" type="submit" class="btn-primary">
-                    Create Account
-                </button>
+            <div class="footer-section">
+                <h3>Questions</h3>
+                <a href="#">Contact Us</a>
+                <a href="#">Cancellations & Refunds</a>
+                <a href="#">Complaints</a>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">T</a>
+                    <a href="#" class="social-icon">in</a>
+                </div>
             </div>
         </div>
-    </div>
-
-</form>
-
+        <div class="footer-bottom">
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Legal</a>
+                <a href="#">Sitemap</a>
+            </div>
+            <div class="copyright">© 2022 CIFFA All Right Reserved</div>
+        </div>
+    </footer>
 </body>
+
 </html>
