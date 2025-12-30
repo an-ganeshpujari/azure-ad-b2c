@@ -166,18 +166,42 @@
             justify-content: center;
             margin-top: 40px;
         }
-        /* B2C Verification Code Container */
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        /* B2C Verification Code Container - Style the injected verification code input */
         #verificationCode {
             margin: 40px 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
         }
-        #verificationCode input {
-            width: 60px;
-            height: 70px;
-            text-align: center;
-            font-size: 32px;
-            border: 2px solid #ccc;
-            border-radius: 4px;
-            margin: 0 5px;
+        
+        /* Style B2C's injected verification code input */
+        #verificationCode input,
+        input[name="verificationCode"],
+        input[type="text"][id*="verification"],
+        .verificationCode {
+            width: 60px !important;
+            height: 70px !important;
+            text-align: center !important;
+            font-size: 32px !important;
+            border: 2px solid #ccc !important;
+            border-radius: 4px !important;
+            margin: 0 5px !important;
+        }
+        
+        /* Hide B2C's default label if it appears */
+        #verificationCode label {
+            display: none;
         }
     </style>
 </head>
@@ -209,9 +233,23 @@
                 Please enter it below to continue.
             </p>
 
+            <!-- Email input (read-only) - B2C needs this to know which email to verify -->
+            <div class="form-group" style="margin-bottom: 20px;">
+                <label>Email Address</label>
+                <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    readonly
+                    style="background-color: #f5f5f5; cursor: not-allowed;" />
+            </div>
+
             <!-- B2C will automatically inject verification code UI when it sees Verified.Email -->
-            <!-- The verification code input will appear here automatically -->
-            <div id="verificationCode"></div>
+            <!-- B2C injects the verification code input automatically - it will appear here -->
+            <div id="verificationCode" class="verification-code-container"></div>
+            
+            <!-- Fallback: B2C might inject verification code input directly in form -->
+            <!-- This ensures the form structure is correct for B2C to inject the UI -->
 
             <div class="button-group">
                 <!-- BACK disabled for now -->
@@ -226,6 +264,7 @@
             </div>
         </div>
     </div>
+
 </form>
 
 </body>
