@@ -166,6 +166,19 @@
             justify-content: center;
             margin-top: 40px;
         }
+        /* B2C Verification Code Container */
+        #verificationCode {
+            margin: 40px 0;
+        }
+        #verificationCode input {
+            width: 60px;
+            height: 70px;
+            text-align: center;
+            font-size: 32px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            margin: 0 5px;
+        }
     </style>
 </head>
 
@@ -196,15 +209,9 @@
                 Please enter it below to continue.
             </p>
 
-            <!-- UI ONLY (not wired yet) -->
-            <div class="code-inputs">
-                <input class="code-input" maxlength="1" />
-                <input class="code-input" maxlength="1" />
-                <input class="code-input" maxlength="1" />
-                <input class="code-input" maxlength="1" />
-                <input class="code-input" maxlength="1" />
-                <input class="code-input" maxlength="1" />
-            </div>
+            <!-- B2C will automatically inject verification code UI when it sees Verified.Email -->
+            <!-- The verification code input will appear here automatically -->
+            <div id="verificationCode"></div>
 
             <div class="button-group">
                 <!-- BACK disabled for now -->
