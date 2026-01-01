@@ -6,46 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CIFFA Dev</title>
     <script>
-        function makePwdToggler(pwd){
-  // Create show-password checkbox
-  var checkbox = document.createElement('input');
-  checkbox.setAttribute('type', 'checkbox');
-  var id = pwd.id + 'toggler';
-  checkbox.setAttribute('id', id);
+(function () {
+  const observer = new MutationObserver(() => {
+    const label = document.getElementById('postalCode_label');
 
-  var label = document.createElement('label');
-  label.setAttribute('for', id);
-  label.appendChild(document.createTextNode('show password'));
+    // Element not yet rendered
+    if (!label) return;
 
-  var div = document.createElement('div');
-  div.appendChild(checkbox);
-  div.appendChild(label);
-
-  // Add show-password checkbox under password input
-  pwd.insertAdjacentElement('afterend', div);
-
-  // Add toggle password callback
-  function toggle(){
-    if(pwd.type === 'password'){
-      pwd.type = 'text';
-    } else {
-      pwd.type = 'password';
+    // Prevent duplicates
+    if (label.querySelector('.icon')) {
+      observer.disconnect();
+      return;
     }
-  }
-  checkbox.onclick = toggle;
-  // For non-mouse usage
-  checkbox.onkeydown = toggle;
-}
 
-function setupPwdTogglers(){
-  var pwdInputs = document.querySelectorAll('input[type=password]');
-  for (var i = 0; i < pwdInputs.length; i++) {
-    makePwdToggler(pwdInputs[i]);
-  }
-}
+    const icon = document.createElement('label');
+    icon.className = 'icon';
+    icon.textContent = 'i';
+    icon.title = 'Testing';
 
-setupPwdTogglers();
-    </script>
+    icon.style.background = 'red';
+    icon.style.width = '1rem';
+    icon.style.textAlign = 'center';
+    icon.style.borderRadius = '2rem';
+    icon.style.marginLeft = '6px';
+    icon.style.cursor = 'pointer';
+
+    label.appendChild(icon);
+
+    // Stop observing once done
+    observer.disconnect();
+  });
+
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+})();
+</script>
+
     <style>
         * {
             margin: 0;
