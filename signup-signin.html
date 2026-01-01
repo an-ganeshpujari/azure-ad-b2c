@@ -9,40 +9,28 @@
 (function () {
   const observer = new MutationObserver(() => {
     const label = document.getElementById('postalCode_label');
-
-    // Element not yet rendered
     if (!label) return;
 
     // Prevent duplicates
-    if (label.querySelector('.icon')) {
+    if (label.querySelector('.info-icon')) {
       observer.disconnect();
       return;
     }
 
-    const icon = document.createElement('label');
-    icon.className = 'icon';
-    icon.textContent = 'i';
-    icon.title = 'Testing';
+    const img = document.createElement('img');
+    img.src = './info.svg';   // relative path
+    img.alt = 'Information';
+    img.className = 'info-icon';
+      img.title="If you're working for a company, please enter the company location postal code.";
 
-    icon.style.background = 'red';
-    icon.style.width = '1rem';
-    icon.style.textAlign = 'center';
-    icon.style.borderRadius = '2rem';
-    icon.style.marginLeft = '6px';
-    icon.style.cursor = 'pointer';
-
-    label.appendChild(icon);
-
-    // Stop observing once done
+    label.appendChild(img);
     observer.disconnect();
   });
 
-  observer.observe(document.body, {
-    childList: true,
-    subtree: true
-  });
+  observer.observe(document.body, { childList: true, subtree: true });
 })();
 </script>
+
 
     <style>
         * {
@@ -81,6 +69,15 @@
             margin-bottom: 16px;
             position: relative;
         }
+
+        #api .info-icon {
+          width: 16px;
+          height: 16px;
+          margin-left: 6px;
+          cursor: pointer;
+          vertical-align: middle;
+        }
+
 
         #api .entry-item {
             margin: 5px 0;
