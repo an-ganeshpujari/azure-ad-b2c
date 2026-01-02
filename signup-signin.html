@@ -1,357 +1,437 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CIFFA Dev - Improved</title>
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-	 <script>
-(function () {
-  const observer = new MutationObserver(() => {
-    const label = document.getElementById('postalCode_label');
-    if (!label) return;
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-    // Prevent duplicates
-    if (label.querySelector('.info-icon')) {
-      observer.disconnect();
-      return;
-    }
+    <script>
+      (function () {
+        const observer = new MutationObserver(() => {
+          const label = document.getElementById("postalCode_label");
+          if (!label) return;
 
-    const img = document.createElement('img');
-    img.src = 'https://an-ganeshpujari.github.io/azure-ad-b2c/info-icon.svg';   // relative path
-    img.alt = 'Information';
-    img.className = 'info-icon';
-      img.title="If you're working for a company, please enter the company location postal code.";
-	  const input = document.getElementById('postalCode');
+          // Prevent duplicates
+          if (label.querySelector(".info-icon")) {
+            observer.disconnect();
+            return;
+          }
 
-    // Update placeholder text
-    input.setAttribute('placeholder', 'For example: A1A 1A1');
+          const img = document.createElement("img");
+          img.src =
+            "https://an-ganeshpujari.github.io/azure-ad-b2c/info-icon.svg";
+          img.alt = "Information";
+          img.className = "info-icon";
+          img.title =
+            "If you're working for a company, please enter the company location postal code.";
+          const input = document.getElementById("postalCode");
 
-    label.appendChild(img);
-    observer.disconnect();
-  });
+          // Update placeholder text
+          input.setAttribute("placeholder", "For example: A1A 1A1");
 
-  observer.observe(document.body, { childList: true, subtree: true });
-})();
-</script>
-    
+          label.appendChild(img);
+          observer.disconnect();
+        });
+
+        observer.observe(document.body, { childList: true, subtree: true });
+      })();
+    </script>
+
     <style>
-        :root {
-            --ciffa-blue: #00b9f2;
-            --ciffa-dark: #000000;
-            --ciffa-light: #f8f9fa;
-        }
+      :root {
+        --ciffa-blue: #00b9f2;
+        --ciffa-dark: #000000;
+        --ciffa-light: #f8f9fa;
+      }
 
-        body { font-family: 'Arial', sans-serif; }
+      body {
+        font-family: "Arial", sans-serif;
+      }
 
-        /* Navigation Customization */
-        .header-main {
-            background: #fff;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1020;
-        }
+      /* Navigation Customization */
+      .header-main {
+        background: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1020;
+      }
 
-        .navbar-brand img { height: 50px; }
+      .navbar-brand img {
+        height: 35px;
+      }
 
-        .nav-link {
-            color: var(--ciffa-dark) !important;
-            font-weight: 600;
-            font-size: 14px;
-            text-transform: uppercase;
-            padding: 1rem !important;
-        }
+      .nav-link {
+        color: var(--ciffa-dark) !important;
+        font-weight: 600;
+        font-size: 14px;
+        text-transform: uppercase;
+        padding: 1rem !important;
+      }
 
-        .nav-link:hover { color: var(--ciffa-blue) !important; }
+      .nav-link:hover {
+        color: var(--ciffa-blue) !important;
+      }
 
-        .dropdown-menu { border-radius: 0; border: none; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-        
-        .dropdown-item:hover { background-color: var(--ciffa-light); color: var(--ciffa-blue); }
+      .dropdown-menu {
+        border-radius: 0;
+        border: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
 
-        /* Buttons */
-        .btn-register {
-            background-color: var(--ciffa-dark);
-            color: var(--ciffa-blue);
-            font-weight: 700;
-            border-radius: 0;
-            padding: 10px 20px;
-            text-transform: uppercase;
-        }
+      .dropdown-item:hover {
+        background-color: var(--ciffa-light);
+        color: var(--ciffa-blue);
+      }
 
-        .btn-register:hover { background-color: #1a1a1a; color: #fff; }
+      /* Buttons */
+      .btn-register {
+        background-color: var(--ciffa-dark);
+        color: var(--ciffa-blue);
+        font-weight: 700;
+        border-radius: 0;
+        padding: 10px 20px;
+        text-transform: uppercase;
+      }
 
-        /* Form styling */
-        #api .intro {
-            display: none;
-        }
+      .btn-register:hover {
+        background-color: #1a1a1a;
+        color: #fff;
+      }
 
-        /* API Container Centering */
-        #api {
-            max-width: 500px;
-            margin: 60px auto;
-            padding: 40px;
-            background-color: #f5f5f5;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
+      /* Form styling */
+      #api .intro {
+        display: none;
+      }
 
-        /* Remove list bullets and spacing */
-        #api ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+      /* API Container Centering */
+      #api {
+        max-width: 500px;
+        margin: 60px auto;
+        padding: 40px;
+        background-color: #f5f5f5;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
 
-        #api li {
-            margin-bottom: 16px;
-            position: relative;
-        }
+      #api button[aria-disabled="true"] {
+        opacity: 0.3;
+        pointer-events: none; /* optional: prevents click */
+      }
 
-        #api .info-icon {
-          width: 16px;
-          height: 16px;
-          margin-left: 6px;
-          cursor: pointer;
-          vertical-align: middle;
-        }
+      /* Remove list bullets and spacing */
+      #api ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
 
+      #api li {
+        margin-bottom: 16px;
+        position: relative;
+      }
 
-        #api .entry-item {
-            margin: 5px 0;
-            position: relative;
-        }
+      #api .info-icon {
+        width: 16px;
+        height: 16px;
+        margin-left: 6px;
+        cursor: pointer;
+        vertical-align: middle;
+      }
 
-        #api #forgotPassword {
-            position: absolute;
-            bottom: -40px;
-        }
+      #api .entry-item {
+        margin: 5px 0;
+        position: relative;
+      }
 
-        #api input:not(#postalCode)::placeholder {
-          opacity: 0;
-        }
+      #api #forgotPassword {
+        position: absolute;
+        bottom: -40px;
+      }
 
-        #api #postalCode_label {
-            display: flex;
-            align-items: center;
-        }
+      #api input:not(#postalCode)::placeholder {
+        opacity: 0;
+      }
 
-        /* Labels */
-        #api label {
-            display: block;
-            font-size: 16px;
-            font-weight: 500;
-            color: #000;
-            margin-top: 5px;
-        }
+      #api #postalCode_label {
+        display: flex;
+        align-items: center;
+      }
 
-        /* Inputs */
-        #api input[type="text"],
-        #api input[type="email"],
-        #api input[type="password"] {
-            width: 100%;
-            padding: 16px;
-            border-radius: 5px;
-            border: 1px solid #d1d5db;
-            font-size: 14px;
-            transition: all 0.2s ease;
-            margin-top: 5px;
-        }
+      /* Labels */
+      #api label {
+        display: block;
+        font-size: 16px;
+        font-weight: 500;
+        color: #000;
+        margin-top: 5px;
+      }
 
-        #api input:focus {
-            outline: none;
-            border-color: #00b9f2;
-            box-shadow: 0 0 0 2px rgba(0, 185, 242, 0.15);
-        }
+      /* Inputs */
+      #api input[type="text"],
+      #api input[type="email"],
+      #api input[type="password"] {
+        width: 100%;
+        padding: 16px;
+        border-radius: 5px;
+        border: 1px solid #d1d5db;
+        font-size: 14px;
+        transition: all 0.2s ease;
+        margin-top: 5px;
+      }
 
-        /* Submit button */
-        #api button {
-            margin: 15px 0;
-            padding: 16px;
-            font-size: 14px;
-            font-weight: 600;
-            border-radius: 8px;
-            color: #00b9f2;
-            background-color: #000;
-            border: none;
-            cursor: pointer;
-            text-transform: uppercase;
-            transition: background-color 0.2s ease;
-        }
+      #api input:focus {
+        outline: none;
+        border-color: #00b9f2;
+        box-shadow: 0 0 0 2px rgba(0, 185, 242, 0.15);
+      }
 
-        #api .buttons #next {
-            margin-top: 60px
-        }
+      /* Submit button */
+      #api button {
+        margin: 15px 0;
+        padding: 16px;
+        font-size: 14px;
+        font-weight: 600;
+        border-radius: 8px;
+        color: #00b9f2;
+        background-color: #000;
+        border: none;
+        cursor: pointer;
+        text-transform: uppercase;
+        transition: background-color 0.2s ease;
+      }
 
-        #api .buttons .sendNewCode {
-            margin-left: 20px;
-        }
+      #api .buttons #next {
+        margin-top: 60px;
+      }
 
-        #api .buttons #cancel {
-            margin-left: 20px;
-            background-color: transparent;
-        }
+      #api .buttons .sendNewCode {
+        margin-left: 20px;
+      }
 
-        /* Forgot password link */
-        #api .forgot-password {
-            text-align: right;
-            font-size: 13px;
-            margin-top: -12px;
-            margin-bottom: 16px;
-        }
+      #api .buttons #cancel {
+        margin-left: 20px;
+        background-color: transparent;
+      }
 
-        #api a:hover,
-        #api a:active,
-        #api a:visited,
-        #api a {
-            color: #00b9f2;
-            text-decoration: underline;
-        }
+      /* Forgot password link */
+      #api .forgot-password {
+        text-align: right;
+        font-size: 13px;
+        margin-top: -12px;
+        margin-bottom: 16px;
+      }
 
-        #api .error {
-            color: #b00;
-            text-align: left;
-            margin: 2px 0;
-            font-size: 14px;
-        }
+      #api a:hover,
+      #api a:active,
+      #api a:visited,
+      #api a {
+        color: #00b9f2;
+        text-decoration: underline;
+      }
 
-        #api .create #createAccount {
-            margin-left: 10px;
-            text-transform: uppercase;
-        }
+      #api .error {
+        color: #b00;
+        text-align: left;
+        margin: 2px 0;
+        font-size: 14px;
+      }
 
-		#api a.helpLink {
-            display: none;
-        }
+      #api .create #createAccount {
+        margin-left: 10px;
+        text-transform: uppercase;
+      }
 
-        input:focus { border-color: var(--ciffa-blue) !important; box-shadow: 0 0 0 0.25rem rgba(0, 185, 242, 0.25) !important; }
+      #api a.helpLink {
+        display: none;
+      }
 
-        /* Footer */
-        footer { background-color: #f9f9f9; border-top: 1px solid #eee; }
-        
-        footer h3 {
-            color: #999;
-            font-size: 18px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 20px;
-        }
+      input:focus {
+        border-color: var(--ciffa-blue) !important;
+        box-shadow: 0 0 0 0.25rem rgba(0, 185, 242, 0.25) !important;
+      }
 
-        footer a { color: var(--ciffa-blue); text-decoration: none; }
-        
-        .social-icon {
-            width: 40px; height: 40px;
-            background: #ccc; display: inline-flex;
-            align-items: center; justify-content: center;
-            border-radius: 50%; color: #fff; margin-right: 10px;
-        }
+      /* Footer */
+      footer {
+        background-color: #f9f9f9;
+        border-top: 1px solid #eee;
+      }
 
-	.dropdown-menu {
-		top: 42px;
-	}
+      footer h3 {
+        color: #999;
+        font-size: 18px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin-bottom: 20px;
+      }
+
+      footer a {
+        color: var(--ciffa-blue);
+        text-decoration: none;
+      }
+
+      .social-icon {
+        width: 40px;
+        height: 40px;
+        background: #ccc;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        color: #fff;
+        margin-right: 10px;
+      }
+
+      .dropdown-menu {
+        top: 42px;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-
-<header class="header-main">
-    <nav class="navbar navbar-expand-lg">
+  <body>
+    <header class="header-main">
+      <nav class="navbar navbar-expand-lg">
         <div class="container-xl">
-            <a class="navbar-brand" href="#">
-                <img src="https://www.ciffa.com/wp-content/themes/ciffa/images/logo.png" alt="CIFFA">
-            </a>
+          <a class="navbar-brand" href="#">
+            <img
+              src="https://www.ciffa.com/wp-content/themes/ciffa/images/logo.png"
+              alt="CIFFA"
+            />
+          </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNav"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-            <div class="collapse navbar-collapse" id="mainNav">
-                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Courses</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Certificate Programs</a></li>
-                            <li><a class="dropdown-item" href="#">Advanced Diplomas</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Membership</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Become a Member</a></li>
-                            <li><a class="dropdown-item" href="#">Member Benefits</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Advocacy & Resources</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Latest News</a></li>
-                            <li><a class="dropdown-item" href="#">Industry Tools</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About CIFFA</a>
-                    </li>
+          <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  data-bs-toggle="dropdown"
+                  >Courses</a
+                >
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="#">Certificate Programs</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">Advanced Diplomas</a>
+                  </li>
                 </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  data-bs-toggle="dropdown"
+                  >Membership</a
+                >
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Become a Member</a></li>
+                  <li><a class="dropdown-item" href="#">Member Benefits</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  data-bs-toggle="dropdown"
+                  >Advocacy & Resources</a
+                >
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Latest News</a></li>
+                  <li><a class="dropdown-item" href="#">Industry Tools</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About CIFFA</a>
+              </li>
+            </ul>
 
-                <div class="d-flex align-items-center gap-3">
-                    <a href="#" class="text-decoration-none fw-bold small" style="color: var(--ciffa-blue);">🛒 SHOPPING CART</a>
-                    <button class="btn btn-register">Register for Events</button>
-                </div>
+            <div class="d-flex align-items-center gap-3">
+              <a
+                href="#"
+                class="text-decoration-none fw-bold small"
+                style="color: var(--ciffa-blue)"
+                >🛒 SHOPPING CART</a
+              >
+              <button class="btn btn-register">Register for Events</button>
             </div>
+          </div>
         </div>
-    </nav>
-</header>
+      </nav>
+    </header>
 
-    <div id="api">
-    </div>
+    <div id="api"></div>
 
-<footer class="pt-5 pb-3">
-    <div class="container">
+    <footer class="pt-5 pb-3">
+      <div class="container">
         <div class="row g-4">
-            <div class="col-md-3">
-                <h3>CIFFA Test</h3>
-                <p class="mb-1">170 Attwell Drive, Suite 480</p>
-                <p>Toronto, Ontario M9W 5Z5</p>
+          <div class="col-md-3">
+            <h3>CIFFA Test</h3>
+            <p class="mb-1">170 Attwell Drive, Suite 480</p>
+            <p>Toronto, Ontario M9W 5Z5</p>
+          </div>
+          <div class="col-md-6">
+            <h3>Join Our Mailing List</h3>
+            <p class="small">
+              By clicking sign up you consent to receive emails.
+              <a href="#">Privacy Policy</a>
+            </p>
+            <div class="input-group mb-3" style="max-width: 400px">
+              <input
+                type="email"
+                class="form-control rounded-0"
+                placeholder="Email address"
+              />
+              <button
+                class="btn btn-dark text-info fw-bold rounded-0 px-4"
+                type="button"
+              >
+                SIGN UP
+              </button>
             </div>
-            <div class="col-md-6">
-                <h3>Join Our Mailing List</h3>
-                <p class="small">By clicking sign up you consent to receive emails. <a href="#">Privacy Policy</a></p>
-                <div class="input-group mb-3" style="max-width: 400px;">
-                    <input type="email" class="form-control rounded-0" placeholder="Email address">
-                    <button class="btn btn-dark text-info fw-bold rounded-0 px-4" type="button">SIGN UP</button>
-                </div>
+          </div>
+          <div class="col-md-3 text-md-end">
+            <h3>Questions</h3>
+            <ul class="list-unstyled">
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Complaints</a></li>
+            </ul>
+            <div class="mt-3">
+              <a href="#" class="social-icon">T</a>
+              <a href="#" class="social-icon">in</a>
             </div>
-            <div class="col-md-3 text-md-end">
-                <h3>Questions</h3>
-                <ul class="list-unstyled">
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Complaints</a></li>
-                </ul>
-                <div class="mt-3">
-                    <a href="#" class="social-icon">T</a>
-                    <a href="#" class="social-icon">in</a>
-                </div>
-            </div>
+          </div>
         </div>
-        
+
         <div class="row mt-5 pt-3 border-top align-items-center">
-            <div class="col-md-6">
-                <div class="d-flex gap-3">
-                    <a href="#" class="small text-secondary">Privacy Policy</a>
-                    <a href="#" class="small text-secondary">Legal</a>
-                    <a href="#" class="small text-secondary">Sitemap</a>
-                </div>
+          <div class="col-md-6">
+            <div class="d-flex gap-3">
+              <a href="#" class="small text-secondary">Privacy Policy</a>
+              <a href="#" class="small text-secondary">Legal</a>
+              <a href="#" class="small text-secondary">Sitemap</a>
             </div>
-            <div class="col-md-6 text-md-end">
-                <p class="small mb-0">© 2026 CIFFA All Rights Reserved</p>
-            </div>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <p class="small mb-0">© 2026 CIFFA All Rights Reserved</p>
+          </div>
         </div>
-    </div>
-</footer>
+      </div>
+    </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
