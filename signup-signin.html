@@ -13,29 +13,48 @@
     <script>
       (function () {
         const observer = new MutationObserver(() => {
-          const label = document.getElementById("postalCode_label");
-          if (!label) return;
+          function addIcon(label, title, placeholder, input) {
+            if (!label || label.querySelector(".info-icon")) return;
 
-          // Prevent duplicates
-          if (label.querySelector(".info-icon")) {
-            observer.disconnect();
-            return;
+            const img = document.createElement("img");
+            img.src =
+              "https://an-ganeshpujari.github.io/azure-ad-b2c/info-icon.svg";
+            img.alt = "Information";
+            img.className = "info-icon";
+            img.title = title;
+
+            if (input && placeholder) {
+              input.setAttribute("placeholder", placeholder);
+            }
+
+            label.appendChild(img);
           }
 
-          const img = document.createElement("img");
-          img.src =
-            "https://an-ganeshpujari.github.io/azure-ad-b2c/info-icon.svg";
-          img.alt = "Information";
-          img.className = "info-icon";
-          img.title =
-            "If you're working for a company, please enter the company location postal code.";
-          const input = document.getElementById("postalCode");
+          // POSTAL CODE
+          addIcon(
+            document.getElementById("postalCode_label"),
+            "If you're working for a company, please enter the company location postal code.",
+            "For example: A1A 1A1",
+            document.getElementById("postalCode")
+          );
 
-          // Update placeholder text
-          input.setAttribute("placeholder", "For example: A1A 1A1");
+          // EMAIL
+          addIcon(
+            document.querySelector('label[for="email"]'),
+            "Please enter your work email address. Personal emails may not be accepted."
+          );
 
-          label.appendChild(img);
-          observer.disconnect();
+          // Stop observing once both are done
+          if (
+            document
+              .getElementById("postalCode_label")
+              ?.querySelector(".info-icon") &&
+            document
+              .querySelector('label[for="email"]')
+              ?.querySelector(".info-icon")
+          ) {
+            observer.disconnect();
+          }
         });
 
         observer.observe(document.body, { childList: true, subtree: true });
@@ -102,6 +121,10 @@
       .btn-register:hover {
         background-color: #1a1a1a;
         color: #fff;
+      }
+
+      .divider h2 {
+        display: none;
       }
 
       /* Form styling */
