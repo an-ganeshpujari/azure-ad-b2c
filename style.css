@@ -286,7 +286,7 @@ footer a {
 }
 
 .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
-  background-image: url("icons/Property 1=Variant3 (1).svg");
+  background-image: url("icons/close-icon.svg");
 }
 
 /* Mobile menu styles */
