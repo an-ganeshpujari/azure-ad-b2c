@@ -1,13 +1,13 @@
 @font-face {
   font-family: "Gotham";
-  src: url("fonts/Gotham-Book.otf") format("opentype");
+  src: url("https://an-ganeshpujari.github.io/azure-ad-b2c/fonts/Gotham-Book.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Trade-gothic";
-  src: url("fonts/Trade Gothic LT Std Bold.otf") format("opentype");
+  src: url("https://an-ganeshpujari.github.io/azure-ad-b2c/fonts/Trade Gothic LT Std Bold.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
@@ -130,7 +130,7 @@ footer a {
 }
 
 .navbar-toggler-icon {
-  background-image: url("icons/menu_mobile.svg");
+  background-image: url("https://an-ganeshpujari.github.io/azure-ad-b2c/icons/menu_mobile.svg");
   transition: all 0.3s ease;
 }
 
@@ -139,7 +139,7 @@ footer a {
 }
 
 .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
-  background-image: url("icons/close-icon.svg");
+  background-image: url("https://an-ganeshpujari.github.io/azure-ad-b2c/icons/close-icon.svg");
 }
 
 /* Mobile menu styles */
