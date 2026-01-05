@@ -1,0 +1,392 @@
+@font-face {
+  font-family: "Gotham";
+  src: url("fonts/Gotham-Book.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Trade-gothic";
+  src: url("fonts/Trade Gothic LT Std Bold.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --ciffa-blue: #00b9f2;
+  --ciffa-dark: #000000;
+  --ciffa-light: #f8f9fa;
+}
+
+/* Navigation Customization */
+.header-main {
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+}
+
+.navbar-brand img {
+  height: 35px;
+}
+
+.nav-link {
+  color: var(--ciffa-dark) !important;
+  font-weight: 600;
+  font-size: 14px;
+  font-family: "Trade-gothic";
+  text-transform: uppercase;
+  padding: 1rem !important;
+}
+
+.nav-link:hover {
+  color: var(--ciffa-blue) !important;
+}
+
+.dropdown-menu {
+  border-radius: 0;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item:hover {
+  background-color: var(--ciffa-light);
+  color: var(--ciffa-blue);
+}
+
+/* Buttons */
+.btn-register {
+  background-color: var(--ciffa-dark);
+  color: var(--ciffa-blue);
+  font-weight: 700;
+  border-radius: 4px;
+  font-family: "Trade-gothic";
+  padding: 10px 20px;
+  text-transform: uppercase;
+}
+
+.btn-register:hover {
+  background-color: #1a1a1a;
+  color: var(--ciffa-light);
+}
+
+.divider h2 {
+  display: none;
+}
+
+/* Form styling */
+#api .intro {
+  display: none;
+}
+
+/* API Container Centering */
+#api {
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 40px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#api button[aria-disabled="true"] {
+  opacity: 0.3;
+  pointer-events: none; /* optional: prevents click */
+}
+
+/* Remove list bullets and spacing */
+#api ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#api li {
+  margin-bottom: 16px;
+  position: relative;
+}
+
+#api .info-icon {
+  width: 16px;
+  height: 16px;
+  margin-left: 6px;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+#api .entry-item {
+  margin: 5px 0;
+  position: relative;
+}
+
+#api #forgotPassword {
+  position: absolute;
+  bottom: -40px;
+}
+
+#api input:not(#postalCode)::placeholder {
+  opacity: 0;
+}
+
+#api #postalCode_label {
+  display: flex;
+  align-items: center;
+}
+
+/* Labels */
+#api label {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+  margin-top: 5px;
+}
+
+/* Inputs */
+#api input[type="text"],
+#api input[type="email"],
+#api input[type="password"] {
+  width: 100%;
+  padding: 16px;
+  border-radius: 5px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  margin-top: 5px;
+}
+
+#api input:focus {
+  outline: none;
+  border-color: #00b9f2;
+  box-shadow: 0 0 0 2px rgba(0, 185, 242, 0.15);
+}
+
+/* Submit button */
+#api button {
+  margin: 15px 0;
+  padding: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  color: #00b9f2;
+  background-color: #000;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease;
+}
+
+#api .buttons #next {
+  margin-top: 60px;
+}
+
+#api .buttons .sendNewCode {
+  margin-left: 20px;
+}
+
+#api .buttons #cancel {
+  margin-left: 20px;
+  background-color: transparent;
+}
+
+/* Forgot password link */
+#api .forgot-password {
+  text-align: right;
+  font-size: 13px;
+  margin-top: -12px;
+  margin-bottom: 16px;
+}
+
+#api a:hover,
+#api a:active,
+#api a:visited,
+#api a {
+  color: #00b9f2;
+  text-decoration: underline;
+}
+
+#api .error {
+  color: #b00;
+  text-align: left;
+  margin: 2px 0;
+  font-size: 14px;
+}
+
+#api .create #createAccount {
+  margin-left: 10px;
+  text-transform: uppercase;
+}
+
+#api a.helpLink {
+  display: none;
+}
+
+input:focus {
+  border-color: var(--ciffa-blue) !important;
+  box-shadow: 0 0 0 0.25rem rgba(0, 185, 242, 0.25) !important;
+}
+
+/* Footer */
+footer {
+  background-color: #f9f9f9;
+  border-top: 1px solid #eee;
+}
+
+footer h3 {
+  color: #999;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 20px;
+}
+
+footer a {
+  color: var(--ciffa-blue);
+  text-decoration: none;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  background: #ccc;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.dropdown-menu {
+  top: 42px;
+}
+
+/* here css */
+
+/* Mobile Menu Toggle Button */
+.navbar-toggler {
+  border: none;
+  padding: 3px;
+  background-color: #000;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.navbar-toggler-icon {
+  background-image: url("icons/menu_mobile.svg");
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler[aria-expanded="true"] {
+  background-color: var(--ciffa-dark);
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+  background-image: url("icons/Property 1=Variant3 (1).svg");
+}
+
+/* Mobile menu styles */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background-color: var(--ciffa-light);
+    margin-top: 10px;
+  }
+
+  .nav-item {
+    width: 100%;
+    border-bottom: 1px solid var(--ciffa-light);
+  }
+
+  .nav-link {
+    padding: 15px 20px !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Add down arrow to dropdown links on mobile */
+  .nav-item.dropdown > .nav-link::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid var(--ciffa-blue);
+    margin-left: auto;
+    transition: transform 0.3s ease;
+  }
+
+  /* Rotate arrow when dropdown is open */
+  .nav-item.dropdown > .nav-link[aria-expanded="true"]::after {
+    transform: rotate(180deg);
+  }
+
+  .dropdown-menu {
+    border: none;
+    box-shadow: none;
+    background-color: var(--ciffa-light);
+    position: static !important;
+    transform: none !important;
+  }
+
+  .dropdown-item {
+    padding: 12px 30px;
+    font-family: "Gotham";
+  }
+
+  .d-flex.align-items-center {
+    flex-direction: column;
+    gap: 15px !important;
+    padding: 20px;
+    border-top: 2px solid var(--ciffa-light);
+  }
+
+  .btn-register {
+    width: 70%;
+  }
+}
+
+.shopping-cart {
+  font-family: "Trade-gothic";
+  color: var(--ciffa-dark);
+}
+
+#cart-icon {
+  color: var(--ciffa-blue);
+  font-size: 20px;
+}
+
+/* footer  */
+
+.footer-heading {
+  font-size: 20px;
+  font-family: "Trade-gothic";
+  font-weight: bold;
+  color: var(--ciffa-dark);
+}
+
+.footer-text {
+  font-family: "Gotham";
+  color: var(--ciffa-dark);
+}
+
+.privacy-policy {
+  font-family: "Gotham";
+  color: var(--ciffa-dark);
+}
+
+.gotham-text {
+  font-family: "Gotham";
+}
+
+.trade-gothic-text {
+  font-family: "Trade-gothic";
+}
+
+.signup-button {
+  background-color: var(--ciffa-dark);
+}
