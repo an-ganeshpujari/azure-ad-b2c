@@ -12,6 +12,168 @@
   font-style: normal;
 }
 
+.navbar-brand img {
+  height: var(--font-size-6xl);
+}
+
+.nav-link {
+  color: var(--color-black) !important;
+  font-weight: var(--font-weight-semi-bold);
+  font-size: var(--font-size-md);
+  font-family: var(--font-trade-gothic);
+  text-transform: uppercase;
+  padding: 1rem !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: var(--color-primary) !important;
+}
+
+.nav-icon {
+  display: inline-block;
+  width: var(--font-size-xs);
+  height: var(--font-size-xs);
+  vertical-align: middle;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+
+.nav-link[aria-expanded="true"] .nav-icon {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  border-radius: 0;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item:hover {
+  background-color: var(--color-white);
+  color: var(--color-primary);
+}
+
+.btn-register {
+  background-color: var(--color-black);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+  border-radius: var(--border-radius-small);
+  font-family: var(--font-trade-gothic);
+  padding: 10px 20px;
+  text-transform: uppercase;
+}
+
+.btn-register:hover {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.divider h2 {
+  display: none;
+}
+
+.dropdown-menu {
+  top: 42px;
+}
+
+.navbar-toggler {
+  border: none;
+  padding: 3px;
+  background-color: var(--color-black);
+  transition: background-color 0.3s ease;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.navbar-toggler-icon {
+  background-image: url("https://an-ganeshpujari.github.io/azure-ad-b2c/icons/menu_mobile.svg");
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler[aria-expanded="true"] {
+  background-color: var(--color-black);
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+  background-image: url("https://an-ganeshpujari.github.io/azure-ad-b2c/icons/close-icon.svg");
+}
+
+.shopping-cart {
+  font-family: var(--font-trade-gothic);
+  color: var(--color-black);
+}
+
+#cart-icon {
+  color: var(--color-primary);
+  font-size: var(--font-size-lg);
+}
+
+
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background-color: var(--color-white);
+    margin-top: 10px;
+  }
+
+  .nav-item {
+    width: 100%;
+    border-bottom: 1px solid var(--color-white);
+  }
+
+  .nav-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 15px 20px !important;
+  }
+
+  .nav-icon {
+    margin-left: auto;
+  }
+
+  .nav-item.dropdown>.nav-link::after {
+    content: none;
+  }
+
+  .nav-item.dropdown>.nav-link[aria-expanded="true"]::after {
+    transform: rotate(180deg);
+  }
+
+  .dropdown-menu {
+    border: none;
+    box-shadow: none;
+    background-color: var(--color-white);
+    position: static !important;
+    transform: none !important;
+  }
+
+  .dropdown-item {
+    padding: 12px 30px;
+    font-family: var(--font-gotham);
+  }
+
+  .d-flex.align-items-center {
+    flex-direction: column;
+    gap: 15px !important;
+    padding: 20px;
+    border-top: 2px solid var(--color-white);
+  }
+
+  .btn-register {
+    width: 70%;
+  }
+}
+
 :root {
   --ciffa-blue: #00b9f2;
   --ciffa-dark: #000000;
